@@ -76,7 +76,7 @@ final class NaturalizationRecord
         $this->birthYear = (int) preg_replace(self::$numberFilterPattern, '', (string) $birthYear);
         $this->natIdNum = preg_replace(self::$numberFilterPattern, '', $natIdNum);
 
-        if (!($this->validatePattern($this->natIdNum()) && $this->validateAlgorithm($this->natIdNum()))) {
+        if (! ($this->validatePattern($this->natIdNum()) && $this->validateAlgorithm($this->natIdNum()))) {
             $this->throwValidationException('The given national identification number is invalid.');
         }
     }
